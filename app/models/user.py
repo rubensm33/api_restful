@@ -17,7 +17,3 @@ class User(Base):
     user_scopes = relationship("UserScopes", back_populates="user")
     coins = relationship("Coin", back_populates="user")
     transactions = relationship("Transaction", back_populates="user")
-
-    @declared_attr
-    def type(cls):
-        return Column(String(50))

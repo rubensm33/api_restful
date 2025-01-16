@@ -16,7 +16,7 @@ class Coin(Base):
     percent_change_24h = Column(Float)
     percent_change_7d = Column(Float)
     
-    user = relationship("UserScopes", back_populates="coins")
+    user = relationship("User", back_populates="coins")
 
     @declared_attr
     def type(cls):
