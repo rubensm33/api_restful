@@ -2,8 +2,11 @@ from fastapi import FastAPI
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+from controller import token
 
+app = FastAPI(debug=True)
+
+app.include_router(token.router, tags=["Autenticação"])
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
