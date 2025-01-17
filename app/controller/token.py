@@ -1,8 +1,10 @@
 from datetime import timedelta
 from typing import Annotated
+
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
+
 from schemas.token import Token
 from config.database import get_db
 from services.user_service import authenticate_user
