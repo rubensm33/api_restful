@@ -85,9 +85,13 @@ def sell_coin(
     new_transaction = Transaction(
         user_id=current_user.id,
         coin_id=coin.id,
+        coin_name=coin.name,
+        quantity=coin.quantity,
+        total_price=coin.price,
         transaction_type=TransactionTypeEnum.sell,
-        transaction_date=datetime.utcnow(),
+        transaction_date=datetime.now(),
     )
+    new_transaction.coin_name = coin.name
 
     save_transaction(db, new_transaction)
     db_user = db.query(User).filter(User.id == current_user.id).first()

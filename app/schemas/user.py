@@ -6,7 +6,7 @@ class UserBase(BaseModel):
     name: str
     email: EmailStr
     is_active: Optional[bool] = False
-    balance: Optional[float] = 10000.0
+    balance: Optional[float] = 1000000.0
 
 
 class UserCreate(BaseModel):
@@ -14,7 +14,7 @@ class UserCreate(BaseModel):
     email: EmailStr
     hashed_password: str
     is_active: Optional[bool] = False
-    balance: Optional[float] = 10000.0
+    balance: Optional[float] = 1000000.0
 
 
 class UserForm(BaseModel):

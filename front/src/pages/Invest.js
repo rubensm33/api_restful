@@ -34,8 +34,8 @@ const Invest = () => {
       const data = response.data;
       const chartEntry = { time: new Date().toLocaleTimeString(), price: data.price };
 
-      setChartData((prevData) => [...prevData.slice(-10), chartEntry]); 
-      setCoinDetails(data); 
+      setChartData((prevData) => [...prevData.slice(-10), chartEntry]);
+      setCoinDetails(data);
     } catch (error) {
       console.error("Erro ao buscar dados da moeda:", error.message);
     }
@@ -77,6 +77,11 @@ const Invest = () => {
       console.error("Erro ao comprar moeda:", error.message);
       alert("Erro ao realizar a compra.");
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -129,6 +134,9 @@ const Invest = () => {
           <li onClick={() => navigate("/portifolio")}>Portifólio</li>
           <li onClick={() => navigate("/sell")}>Vender Ações</li>
         </ul>
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
 
       <div className="invest-container">
