@@ -8,7 +8,7 @@ Você deve implementar os seguintes casos de uso em uma API:
 
 1. *Cadastro de Usuário*
     
-    - O usuário pode se cadastrar fornecendo *nome, **e-mail, **senha* (com validação de força) e *dados bancários* (dados fictícios são suficientes).
+    - O usuário pode se cadastrar fornecendo *nome*, *e-mail*, *senha* (com validação de força) e *dados bancários* (dados fictícios são suficientes).
     - O sistema deve enviar um e-mail de verificação para validar o e-mail fornecido.
     - A senha deve ser *hash* antes de ser armazenada, e *não deve ser armazenada em texto claro*.
 2. *Login de Usuário*
