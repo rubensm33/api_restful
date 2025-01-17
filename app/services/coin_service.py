@@ -1,16 +1,22 @@
-from models.coin import Coin
+from fastapi import HTTPException
+from schemas.coin import CoinInfo
+from utils.constants import COIN_MAPPING, COINMARKETCAP_API_KEY
+from coinmarketcapapi import CoinMarketCapAPI
 
-def get_coin_data_from_broker_api():
-    """
-    Mock Data.
-    """
-    data = {
-        "name": "Bitcoin",
-        "price": 5.65,
-        "volume_24h": 7155680000,
-        "quantity": 2,
-        "percent_change_1h": -0.152774,
-        "percent_change_24h": 0.518894,
-        "percent_change_7d": 0.986573,
-    }
-    return Coin(**data)
+
+def get_coin_data_from_broker_api(coin_name: str):
+    coin_position = COIN_MAPPING[coin_name]
+
+    cmc_api = CoinMarketCapAPI(COINMARKETCAP_API_KEY)
+    coin_data = cmc_api.cryptocurrency_listings_latest(limit=10).data[coin_position]
+    usd_data = coin_data["quote"]["USD"]
+
+    coin_info = CoinInfo(
+        name=coin_data["name"],
+        price=usd_data["price"],
+        volume_24h=usd_data["volume_24h"],
+        percent_change_1h=usd_data["percent_change_1h"],
+        percent_change_24h=usd_data["percent_change_24h"],
+        percent_change_7d=usd_data["percent_change_7d"],
+    )
+    return coin_info

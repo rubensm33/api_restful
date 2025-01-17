@@ -3,7 +3,7 @@ import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 
 
-from controller import token, user, transaction, coin
+from controller import token, user, transaction, coin, coinmarketcap
 
 app = FastAPI(debug=True)
 
@@ -11,6 +11,7 @@ app.include_router(token.router, tags=["Autenticação"])
 app.include_router(user.router, tags=["Usuários"])
 app.include_router(transaction.router, tags=["Transações"])
 app.include_router(coin.router, tags=["Carteira"])
+app.include_router(coinmarketcap.router, tags=["Ativos"])
 
 app.add_middleware(
     CORSMiddleware,

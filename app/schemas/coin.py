@@ -26,3 +26,14 @@ class CoinAverage(BaseModel):
 
     class Config:
         orm_mode = True
+
+class CoinInfo(BaseModel):
+    name: str
+    price: float
+    volume_24h: float
+    percent_change_1h: float
+    percent_change_24h: float
+    percent_change_7d: float
+
+    class Config:
+        orm_mode = True
