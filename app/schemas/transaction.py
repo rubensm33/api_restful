@@ -21,6 +21,5 @@ class TransactionResponse(BaseModel):
 
 
 class TransactionSell(BaseModel):
-    coin_name: str
     coin_id: int
     quantity: float

@@ -1,0 +1,503 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  .homepage-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .register-section,
+  .login-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .register-section {
+    background-color: #fff;
+  }
+  
+  .login-section {
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+  .register-options {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px;
+  }
+  
+  .register-options button {
+    margin: 0 10px; 
+    width: 150px;  
+    height: 40px; 
+    display: inline-block; 
+  }
+  .register-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .register-page form {
+    width: 300px;
+    padding: 20px;
+    background: #fff; 
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .register-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .success-message {
+    color: green;
+    margin-bottom: 20px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 20px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"] {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  button[type="button"] {
+    background-color: #fff; 
+    color: #000; 
+    border: 1px solid #000; 
+  }
+  
+  button[type="button"]:hover {
+    background-color: #f5f5f5; 
+    color: #000; 
+  }
+  
+  select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #fff; 
+    color: #000; 
+  }
+  
+  select:focus {
+    border-color: #000;
+    outline: none;
+  }
+
+  
+  .remove-btn {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  
+  .remove-btn:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .add-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .add-btn:hover {
+    background-color: #333;
+  }
+
+.menu-button {
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.menu-button:hover {
+  background-color: #333;
+}
+
+
+
+.menu-lateral {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-lateral h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-lateral li {
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #444;
+  transition: background-color 0.3s ease;
+}
+
+.menu-lateral li:hover {
+  background-color: #555;
+}
+
+
+
+
+.voltar-home {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.voltar-home:hover {
+  background-color: #555;
+}
+
+
+.menu-lateral {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+}
+
+
+
+
+.invest-page {
+  display: flex;
+}
+
+.menu-lateral {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+}
+
+.menu-lateral h3 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-lateral li {
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #444;
+  transition: background-color 0.3s ease;
+}
+
+.menu-lateral li:hover {
+  background-color: #555;
+}
+
+.invest-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.invest-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.invest-container select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  height: 400px;
+}
+.coin-details {
+  margin-top: 20px;
+}
+
+.coin-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.coin-details th,
+.coin-details td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.coin-details th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.coin-details tr:hover {
+  background-color: #f1f1f1;
+}
+.buy-section {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.buy-section input {
+  width: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.buy-section button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 4px;
+  border: 1px solid #000000; 
+  cursor: pointer;
+}
+
+
+.buy-section button:hover {
+  background-color: #218838;
+}
+.portifolio-page {
+  padding: 20px;
+}
+
+.portifolio-page h2 {
+  margin-bottom: 20px;
+}
+
+.portifolio-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.portifolio-page table th,
+.portifolio-page table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.portifolio-page table th {
+  background-color: #f4f4f4;
+}
+
+.portifolio-page .back-button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.portifolio-page .back-button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.transactions-page {
+  padding: 20px;
+}
+
+.transactions-page h2 {
+  margin-bottom: 20px;
+}
+
+.transactions-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.transactions-page table th,
+.transactions-page table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.transactions-page table th {
+  background-color: #f4f4f4;
+}
+
+.transactions-page .back-button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.transactions-page .back-button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.sell-page {
+  padding: 20px;
+}
+
+.sell-page h2 {
+  margin-bottom: 20px;
+}
+
+.sell-page .sell-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+}
+
+.sell-page select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.sell-page input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-left: 2px;
+  margin-right: 5px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.sell-page button {
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sell-page button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 20px;
+}

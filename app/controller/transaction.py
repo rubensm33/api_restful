@@ -18,12 +18,13 @@ router = APIRouter(prefix="/transactions")
 
 
 @router.post("/buy", response_model=TransactionResponse, status_code=status.HTTP_201_CREATED)
-def buy_coin(
+async def buy_coin(
     transaction: TransactionCreate,
     current_user: Annotated[User, Depends(get_current_active_user)],
     db: Session = Depends(get_db),
 ):
-    coin_data = get_coin_data_from_broker_api()
+    coin_data = get_coin_data_from_broker_api(transaction.coin_name)
+    
     if not coin_data:
         raise HTTPException(status_code=404, detail="Coin not found in external API")
 
@@ -33,7 +34,7 @@ def buy_coin(
 
     current_user.balance -= total_price
 
-    coin = save_coin(db, coin_data, current_user.id)
+    coin = save_coin(db, coin_data, current_user.id, transaction.quantity)
 
     new_transaction = Transaction(
         user_id=current_user.id,
@@ -68,7 +69,8 @@ def list_user_transactions(
     user_transactions = db.query(Transaction).filter(Transaction.user_id == current_user.id).all()
     if not user_transactions:
         raise HTTPException(status_code=404, detail="No transactions found for the user.")
-
+    
+    print(db.query(Coin).filter(Coin.id == user_transactions[0].coin_id).first().name)
     return [
         TransactionResponse(
             id=transaction.id,
