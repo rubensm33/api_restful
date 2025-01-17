@@ -24,7 +24,7 @@ async def buy_coin(
     db: Session = Depends(get_db),
 ):
     coin_data = get_coin_data_from_broker_api(transaction.coin_name)
-    
+
     if not coin_data:
         raise HTTPException(status_code=404, detail="Coin not found in external API")
 
@@ -39,6 +39,9 @@ async def buy_coin(
     new_transaction = Transaction(
         user_id=current_user.id,
         coin_id=coin.id,
+        coin_name=coin.name,
+        quantity=transaction.quantity,
+        total_price=total_price,
         transaction_type=TransactionTypeEnum.buy,
         transaction_date=datetime.now(),
     )
@@ -52,9 +55,9 @@ async def buy_coin(
     return TransactionResponse(
         id=new_transaction.id,
         user_id=current_user.id,
-        coin_name=transaction.coin_name,
-        quantity=transaction.quantity,
-        total_price=total_price,
+        coin_name=coin.name,
+        quantity=coin.quantity,
+        total_price=coin.price,
         transaction_type=new_transaction.transaction_type.value,
         transaction_date=new_transaction.transaction_date,
     )
@@ -69,15 +72,14 @@ def list_user_transactions(
     user_transactions = db.query(Transaction).filter(Transaction.user_id == current_user.id).all()
     if not user_transactions:
         raise HTTPException(status_code=404, detail="No transactions found for the user.")
-    
-    print(db.query(Coin).filter(Coin.id == user_transactions[0].coin_id).first().name)
+
     return [
         TransactionResponse(
             id=transaction.id,
             user_id=transaction.user_id,
-            coin_name=db.query(Coin).filter(Coin.id == transaction.coin_id).first().name,
-            quantity=db.query(Coin).filter(Coin.id == transaction.coin_id).first().quantity,
-            total_price=db.query(Coin).filter(Coin.id == transaction.coin_id).first().price,
+            coin_name=transaction.coin_name,
+            quantity=transaction.quantity,
+            total_price=transaction.total_price,
             transaction_type=transaction.transaction_type.value,
             transaction_date=transaction.transaction_date,
         )
